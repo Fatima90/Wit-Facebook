@@ -21,7 +21,7 @@ const firstEntityValue = (entities, entity) => {
 // Bot actions
 const actions = {
   say(sessionId, context, message, cb) {
-    console.log(message);
+    console.log("contexxxxt",context);
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
@@ -37,7 +37,6 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       FB.fbMessage(recipientId, message, (err, data) => {
-        console.log("something two", message, data);
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -58,6 +57,7 @@ const actions = {
   },
   merge(sessionId, context, entities, message, cb) {
     // Retrieve the location entity and store it into a context field
+
     const loc = firstEntityValue(entities, 'location');
     if (loc) {
       context.loc = loc; // store it in context
