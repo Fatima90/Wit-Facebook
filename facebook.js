@@ -19,6 +19,7 @@ const fbReq = request.defaults({
 
 
 const fbMessage = (recipientId, msg, cb) => {
+  console.log("mesggggg",msg);
   const opts = {
     form: {
       recipient: {
@@ -31,7 +32,6 @@ const fbMessage = (recipientId, msg, cb) => {
   };
 
   fbReq(opts, (err, resp, data) => {
-    console.log("dataaaaa", data)
     if (cb) {
       cb(err || data.error && data.error.message, data);
     }
