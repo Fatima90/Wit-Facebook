@@ -18,7 +18,7 @@ const fbReq = request.defaults({
 });
 
 
-const fbMessage = (recipientId, msg, cb) => {
+const fbMessage = (recipientId, msg, entities, cb) => {
   const opts = {
     form: {
       recipient: {
@@ -27,10 +27,12 @@ const fbMessage = (recipientId, msg, cb) => {
       message: {
         text: msg,
       },
-      entities:{}
+      entities: {
+        entities: entities
+      }
     },
   };
-
+console.log("entitttttt", opts)
   fbReq(opts, (err, resp, data) => {
     console.log("dataaaaa", data)
     if (cb) {
