@@ -21,7 +21,6 @@ const firstEntityValue = (entities, entity) => {
 // Bot actions
 const actions = {
   say(sessionId, context, message, cb) {
-    console.log("contextBot",context,message)
     // Bot testing mode, run cb() and return
     if (require.main === module) {
       cb();
@@ -56,7 +55,7 @@ const actions = {
   },
   merge(sessionId, context, entities, message, cb) {
     // Retrieve the location entity and store it into a context field
-
+console.log("entitiesssss",entities)
     const loc = firstEntityValue(entities, 'location');
     if (loc) {
       context.loc = loc; // store it in context
