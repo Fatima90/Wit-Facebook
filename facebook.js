@@ -51,7 +51,7 @@ const getFirstMessagingEntry = (body) => {
     Array.isArray(body.entry[0].messaging) &&
     body.entry[0].messaging.length > 0 &&
     body.entry[0].messaging[0];
-
+console.log("favlueee,",val)
   return val || null;
 };
 
