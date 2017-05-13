@@ -31,6 +31,7 @@ const fbMessage = (recipientId, msg, cb) => {
   };
 
   fbReq(opts, (err, resp, data) => {
+    console.log("dataaaaa", data)
     if (cb) {
       cb(err || data.error && data.error.message, data);
     }
