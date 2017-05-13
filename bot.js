@@ -11,6 +11,7 @@ const firstEntityValue = (entities, entity) => {
     Array.isArray(entities[entity]) &&
     entities[entity].length > 0 &&
     entities[entity][0].value;
+    console.log('valueeee', val);
   if (!val) {
     return null;
   }
@@ -36,6 +37,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       FB.fbMessage(recipientId, message, (err, data) => {
+        console.log("something two", message, data);
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -60,7 +62,7 @@ const actions = {
     if (loc) {
       context.loc = loc; // store it in context
     }
-
+    console.log("something one", context);
     cb(context);
   },
 
