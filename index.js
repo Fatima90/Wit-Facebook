@@ -111,6 +111,7 @@ app.post('/webhook', (req, res) => {
         msg, // the user's message 
         sessions[sessionId].context, // the user's current session state
         (error, context) => {
+          console.log("conteccct",context);
           if (error) {
             console.log('Oops! Got an error from Wit:', error);
           } else {

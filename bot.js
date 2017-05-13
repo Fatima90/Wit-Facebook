@@ -11,7 +11,7 @@ const firstEntityValue = (entities, entity) => {
     Array.isArray(entities[entity]) &&
     entities[entity].length > 0 &&
     entities[entity][0].value;
-    console.log('valueeee', val);
+    console.log('valueeee', entities);
   if (!val) {
     return null;
   }
@@ -20,7 +20,8 @@ const firstEntityValue = (entities, entity) => {
 
 // Bot actions
 const actions = {
-  say(sessionId, context, message, entities, cb) {
+  say(sessionId, context, message, cb) {
+    console.log("contextBot",context,message)
     // Bot testing mode, run cb() and return
     if (require.main === module) {
       cb();
@@ -34,7 +35,7 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-      FB.fbMessage(recipientId, message, entities, (err, data) => {
+      FB.fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
